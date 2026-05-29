@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WORLDLITE Blog — Brand, Business & Growth Insights</title>
+<meta name="description" content="Practical brand, business and growth insights for Nigerian entrepreneurs and SMEs from the WORLDLITE Media team."/>
+<meta name="keywords" content="branding tips Nigeria, business growth Nigeria, brand strategy, social media tips, SME Nigeria, Worldlite blog"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+:root{
+  --blue:#2563eb;--blue-2:#1d4ed8;
+  --dark:#050816;--dark-2:#0a1020;--dark-3:#0f1a2e;
+  --white:#ffffff;--cream:#e8edf5;--muted:#8fa3bf;
+  --border:rgba(255,255,255,0.07);--glass:rgba(255,255,255,0.03);
+  --gold:#f59e0b;--green:#10b981;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--white);font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:'Sora',sans-serif;letter-spacing:-.3px;line-height:1.2;}
+a{text-decoration:none;color:inherit;}
+
+.container{width:90%;max-width:1200px;margin:auto;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
+.reveal.on{opacity:1;transform:translateY(0);}
+
+/* NAV */
+nav{position:fixed;width:100%;top:0;z-index:997;transition:.4s;}
+nav.scrolled{background:rgba(5,8,22,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 0;}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
+.logo-mark{width:34px;height:34px;border-radius:7px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#fff;font-family:'DM Mono',monospace;}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--muted);transition:.3s;letter-spacing:.3px;}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.nav-cta{padding:10px 20px;border-radius:8px;background:var(--blue);color:#fff;font-family:'Sora',sans-serif;font-size:.8rem;font-weight:600;transition:.3s;}
+.nav-cta:hover{background:var(--blue-2);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+
+/* HERO */
+.blog-hero{
+  padding:140px 0 80px;
+  background:linear-gradient(180deg,rgba(37,99,235,.06) 0%,transparent 100%);
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.blog-hero::before{
+  content:'';position:absolute;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.08),transparent 70%);
+  top:-200px;right:-100px;pointer-events:none;
+}
+.blog-hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'DM Mono',monospace;font-size:.65rem;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--blue);margin-bottom:20px;
+}
+.blog-hero-tag::before{content:'';width:20px;height:1.5px;background:var(--blue);display:block;}
+.blog-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);margin-bottom:16px;max-width:640px;}
+.blog-hero h1 span{color:var(--blue);}
+.blog-hero p{color:var(--muted);font-size:1rem;max-width:520px;line-height:1.8;margin-bottom:32px;}
+
+/* SEARCH */
+.search-wrap{position:relative;max-width:480px;}
+.search-input{
+  width:100%;background:rgba(255,255,255,.05);
+  border:1px solid var(--border);
+  color:#fff;font-family:'Montserrat',sans-serif;font-size:.88rem;
+  padding:13px 48px 13px 18px;outline:none;border-radius:10px;
+  transition:.3s;
+}
+.search-input:focus{border-color:var(--blue);}
+.search-input::placeholder{color:var(--muted);}
+.search-icon{
+  position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  color:var(--muted);font-size:.9rem;pointer-events:none;
+}
+
+/* CATEGORIES */
+.categories{
+  display:flex;align-items:center;gap:10px;
+  flex-wrap:wrap;padding:28px 0;
+  border-bottom:1px solid var(--border);
+  margin-bottom:64px;
+}
+.cat-btn{
+  padding:8px 18px;border-radius:100px;
+  font-family:'DM Mono',monospace;font-size:.62rem;
+  letter-spacing:2px;text-transform:uppercase;
+  border:1px solid var(--border);color:var(--muted);
+  cursor:pointer;transition:.3s;background:none;
+}
+.cat-btn:hover,.cat-btn.active{
+  border-color:var(--blue);color:var(--blue);
+  background:rgba(37,99,235,.08);
+}
+
+/* FEATURED POST */
+.featured-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'DM Mono',monospace;font-size:.6rem;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;
+}
+.featured-label::before{content:'';width:20px;height:1.5px;background:var(--gold);display:block;}
+.featured-post{
+  display:grid;grid-template-columns:1.2fr .8fr;
+  gap:0;
+  background:var(--dark-3);border:1px solid rgba(37,99,235,.2);
+  margin-bottom:80px;overflow:hidden;
+  transition:.3s;
+}
+.featured-post:hover{border-color:rgba(37,99,235,.4);transform:translateY(-4px);}
+.featured-img{
+  background:linear-gradient(135deg,#0D1B2A,#1E3A8A);
+  min-height:320px;display:flex;align-items:center;
+  justify-content:center;position:relative;overflow:hidden;
+  padding:40px;
+}
+.featured-img-inner{
+  text-align:center;position:relative;z-index:1;
+}
+.post-icon-big{font-size:4rem;margin-bottom:16px;display:block;}
+.featured-img::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 60% 40%,rgba(37,99,235,.2),transparent 60%);
+}
+.featured-content{padding:44px 40px;display:flex;flex-direction:column;justify-content:center;}
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
+.post-cat{
+  font-family:'DM Mono',monospace;font-size:.58rem;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:4px 10px;border-radius:100px;
+  background:rgba(37,99,235,.12);color:var(--blue);
+  border:1px solid rgba(37,99,235,.2);
+}
+.post-cat.gold{background:rgba(245,158,11,.1);color:var(--gold);border-color:rgba(245,158,11,.2);}
+.post-cat.green{background:rgba(16,185,129,.1);color:var(--green);border-color:rgba(16,185,129,.2);}
+.post-date{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:1px;}
+.post-read{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);}
+.featured-content h2{font-size:clamp(1.4rem,2.5vw,1.9rem);margin-bottom:14px;line-height:1.25;}
+.featured-content p{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:24px;}
+.read-more{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Sora',sans-serif;font-size:.78rem;font-weight:600;
+  color:var(--blue);transition:.3s;
+}
+.read-more:hover{gap:14px;}
+.read-more i{font-size:.75rem;}
+
+/* POSTS GRID */
+.posts-section-title{
+  font-size:1.3rem;margin-bottom:32px;
+  padding-bottom:16px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:80px;}
+.post-card{
+  background:var(--dark-3);border:1px solid var(--border);
+  transition:.3s;cursor:pointer;overflow:hidden;
+}
+.post-card:hover{border-color:rgba(37,99,235,.25);transform:translateY(-6px);}
+.post-card-img{
+  height:180px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.post-card-img.blue-bg{background:linear-gradient(135deg,#0a1428,#1e3a8a);}
+.post-card-img.gold-bg{background:linear-gradient(135deg,#1a1000,#3d2800);}
+.post-card-img.green-bg{background:linear-gradient(135deg,#001a0e,#003d1c);}
+.post-card-img.purple-bg{background:linear-gradient(135deg,#120a1a,#2d1254);}
+.post-card-img.navy-bg{background:linear-gradient(135deg,#060c1a,#0d1e3d);}
+.post-card-img.dark-bg{background:linear-gradient(135deg,#080808,#1a1a1a);}
+.post-icon{font-size:2.4rem;position:relative;z-index:1;}
+.post-card-body{padding:28px 24px;}
+.post-card-body h3{font-size:1rem;margin-bottom:10px;line-height:1.4;}
+.post-card-body p{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:16px;}
+.post-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:14px;border-top:1px solid var(--border);
+}
+.post-author{display:flex;align-items:center;gap:8px;}
+.author-dot{width:24px;height:24px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;}
+.author-info{font-size:.7rem;color:var(--muted);}
+
+/* NEWSLETTER */
+.newsletter{
+  background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(37,99,235,.04));
+  border:1px solid rgba(37,99,235,.2);
+  padding:56px 64px;margin-bottom:80px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:center;
+}
+.newsletter h3{font-size:clamp(1.4rem,2.5vw,1.9rem);margin-bottom:12px;}
+.newsletter h3 span{color:var(--blue);}
+.newsletter p{font-size:.88rem;color:var(--muted);line-height:1.7;}
+.newsletter-form{display:flex;gap:12px;}
+.newsletter-input{
+  flex:1;background:rgba(255,255,255,.05);
+  border:1px solid var(--border);color:#fff;
+  font-family:'Montserrat',sans-serif;font-size:.85rem;
+  padding:13px 16px;outline:none;border-radius:8px;transition:.3s;
+}
+.newsletter-input:focus{border-color:var(--blue);}
+.newsletter-input::placeholder{color:var(--muted);}
+.newsletter-btn{
+  background:var(--blue);color:#fff;border:none;
+  padding:13px 22px;border-radius:8px;
+  font-family:'Sora',sans-serif;font-size:.8rem;font-weight:700;
+  cursor:pointer;transition:.3s;white-space:nowrap;
+}
+.newsletter-btn:hover{background:var(--blue-2);}
+
+/* SIDEBAR TOPICS */
+.blog-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;margin-bottom:80px;}
+.sidebar-card{background:var(--dark-3);border:1px solid var(--border);padding:28px;margin-bottom:20px;}
+.sidebar-title{font-size:.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-family:'DM Mono',monospace;margin-bottom:20px;}
+.topic-list{list-style:none;}
+.topic-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:.85rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:.3s;}
+.topic-list li:last-child{border-bottom:none;}
+.topic-list li:hover{color:var(--blue);}
+.topic-count{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);}
+.popular-post{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:.3s;}
+.popular-post:last-child{border-bottom:none;}
+.popular-post:hover h5{color:var(--blue);}
+.popular-num{font-family:'DM Mono',monospace;font-size:1.2rem;font-weight:500;color:rgba(37,99,235,.3);flex-shrink:0;line-height:1.2;}
+.popular-post h5{font-size:.82rem;line-height:1.4;margin-bottom:4px;}
+.popular-post span{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);}
+
+/* FOOTER */
+.blog-footer{
+  background:var(--dark-2);border-top:1px solid var(--border);
+  padding:40px 0;text-align:center;
+}
+.blog-footer p{font-size:.82rem;color:var(--muted);}
+.blog-footer a{color:var(--blue);}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:998;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;box-shadow:0 8px 32px rgba(37,211,102,.4);transition:.3s;}
+.wa-float:hover{transform:scale(1.1);}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .featured-post{grid-template-columns:1fr;}
+  .featured-img{min-height:200px;}
+  .posts-grid{grid-template-columns:1fr 1fr;}
+  .blog-layout{grid-template-columns:1fr;}
+  .newsletter{grid-template-columns:1fr;padding:40px 32px;}
+  .newsletter-form{flex-direction:column;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:600px){
+  .posts-grid{grid-template-columns:1fr;}
+  .categories{gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/2347085335939" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">WL</div>WORLDLITE</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#diagnosis">Diagnosis</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Let's Talk</a>
+    <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="container">
+    <div class="blog-hero-tag">Brand & Business Insights</div>
+    <h1>Grow your business<br>with <span>knowledge.</span></h1>
+    <p>Practical brand strategy, business growth, and digital marketing insights — written for Nigerian entrepreneurs and SMEs who are serious about building.</p>
+    <div class="search-wrap">
+      <input type="text" class="search-input" placeholder="Search articles..." id="searchInput" oninput="filterPosts()">
+      <i class="fas fa-search search-icon"></i>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="container">
+  <div class="categories">
+    <button class="cat-btn active" onclick="filterCat('all',this)">All Posts</button>
+    <button class="cat-btn" onclick="filterCat('brand',this)">Branding</button>
+    <button class="cat-btn" onclick="filterCat('social',this)">Social Media</button>
+    <button class="cat-btn" onclick="filterCat('business',this)">Business Growth</button>
+    <button class="cat-btn" onclick="filterCat('tools',this)">AI & Tools</button>
+    <button class="cat-btn" onclick="filterCat('content',this)">Content</button>
+    <button class="cat-btn" onclick="filterCat('mindset',this)">Mindset</button>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<div class="container">
+  <div class="featured-label">Featured Article</div>
+  <div class="featured-post reveal" onclick="openPost(0)">
+    <div class="featured-img">
+      <div class="featured-img-inner">
+        <span class="post-icon-big">🎯</span>
+        <div style="font-family:'Sora',sans-serif;font-size:.7rem;letter-spacing:3px;color:rgba(255,255,255,.3);text-transform:uppercase;">Brand Strategy</div>
+      </div>
+    </div>
+    <div class="featured-content">
+      <div class="post-meta">
+        <span class="post-cat gold">Brand Strategy</span>
+        <span class="post-date">May 29, 2026</span>
+        <span class="post-read">· 5 min read</span>
+      </div>
+      <h2>Why Your Business Is Being Ignored Online — And What To Fix This Week</h2>
+      <p>Most local businesses are losing customers before those customers even read a single caption. Not because the business is bad — because the brand is not communicating what is on the inside. Here is what to fix first.</p>
+      <div class="read-more">Read Article <i class="fas fa-arrow-right"></i></div>
+    </div>
+  </div>
+
+<!-- BLOG LAYOUT WITH SIDEBAR -->
+  <div class="blog-layout">
+    <div>
+      <div class="posts-section-title">
+        <span>Latest Articles</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);" id="post-count">6 articles</span>
+      </div>
+      <div class="posts-grid" id="postsGrid">
+
+        <div class="post-card reveal" data-cat="brand" onclick="openPost(1)">
+          <div class="post-card-img blue-bg"><span class="post-icon">🏷️</span></div>
+          <div class="post-card-body">
+            <div class="post-meta" style="margin-bottom:10px;">
+              <span class="post-cat">Branding</span>
+              <span class="post-date">May 27, 2026</span>
+            </div>
+            <h3>5 Signs Your Brand Is Quietly Losing You Customers</h3>
+            <p>Your logo looks different everywhere. Your captions say nothing specific. Here are the five warning signs — and how to fix each one.</p>
+            <div class="post-card-footer">
+              <div class="post-author"><div class="author-dot">W</div><div class="author-info">WORLDLITE Team · 4 min</div></div>
+              <div class="read-more" style="font-size:.72rem;">Read <i class="fas fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal" data-cat="social" onclick="openPost(2)">
+          <div class="post-card-img gold-bg"><span class="post-icon">📱</span></div>
+          <div class="post-card-body">
+            <div class="post-meta" style="margin-bottom:10px;">
+              <span class="post-cat gold">Social Media</span>
+              <span class="post-date">May 25, 2026</span>
+            </div>
+            <h3>How to Write an Instagram Bio That Actually Converts</h3>
+            <p>Most businesses waste their bio. This simple three-part formula will make the right people stop scrolling and start enquiring.</p>
+            <div class="post-card-footer">
+              <div class="post-author"><div class="author-dot">W</div><div class="author-info">WORLDLITE Team · 3 min</div></div>
+              <div class="read-more" style="font-size:.72rem;">Read <i class="fas fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal" data-cat="business" onclick="openPost(3)">
+          <div class="post-card-img green-bg"><span class="post-icon">📈</span></div>
+          <div class="post-card-body">
+            <div class="post-meta" style="margin-bottom:10px;">
+              <span class="post-cat green">Business Growth</span>
+              <span class="post-date">May 22, 2026</span>
+            </div>
+            <h3>The Difference Between Posting and Having a Strategy</h3>
+            <p>Posting every day without a strategy is like opening a shop and hoping people walk in. Here is how to turn content into a system.</p>
+            <div class="post-card-footer">
+              <div class="post-author"><div class="author-dot">W</div><div class="author-info">WORLDLITE Team · 5 min</div></div>
+              <div class="read-more" style="font-size:.72rem;">Read <i class="fas fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal" data-cat="tools" onclick="openPost(4)">
+          <div class="post-card-img purple-bg"><span class="post-icon">🤖</span></div>
+          <div class="post-card-body">
+            <div class="post-meta" style="margin-bottom:10px;">
+              <span class="post-cat" style="background:rgba(139,92,246,.1);color:#a78bfa;border-color:rgba(139,92,246,.2);">AI & Tools</span>
+              <span class="post-date">May 20, 2026</span>
+            </div>
+            <h3>How Nigerian Businesses Can Use ChatGPT to Save 5 Hours Every Week</h3>
+            <p>From writing captions to replying to customer enquiries — here are 7 practical ways to use AI in your business starting today.</p>
+            <div class="post-card-footer">
+              <div class="post-author"><div class="author-dot">W</div><div class="author-info">WORLDLITE Team · 6 min</div></div>
+              <div class="read-more" style="font-size:.72rem;">Read <i class="fas fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal" data-cat="content" onclick="openPost(5)">
+          <div class="post-card-img navy-bg"><span class="post-icon">✍️</span></div>
+          <div class="post-card-body">
+            <div class="post-meta" style="margin-bottom:10px;">
+              <span class="post-cat">Content</span>
+              <span class="post-date">May 18, 2026</span>
+            </div>
+            <h3>What to Post When You Have Nothing to Post</h3>
+            <p>The blank page problem is real. Here are 10 content ideas that work for any Nigerian business — no photographer needed.</p>
+            <div class="post-card-footer">
+              <div class="post-author"><div class="author-dot">W</div><div class="author-info">WORLDLITE Team · 4 min</div></div>
+              <div class="read-more" style="font-size:.72rem;">Read <i class="fas fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal" data-cat="mindset" onclick="openPost(6)">
+          <div class="post-card-img dark-bg"><span class="post-icon">🧠</span></div>
+          <div class="post-card-body">
+            <div class="post-meta" style="margin-bottom:10px;">
+              <span class="post-cat" style="background:rgba(248,113,113,.08);color:#f87171;border-color:rgba(248,113,113,.2);">Mindset</span>
+              <span class="post-date">May 15, 2026</span>
+            </div>
+            <h3>Why Most Business Owners Plan But Never Execute</h3>
+            <p>Planning without executing is just dreaming with extra steps. Here is the one shift that turns plans into results.</p>
+            <div class="post-card-footer">
+              <div class="post-author"><div class="author-dot">W</div><div class="author-info">WORLDLITE Team · 3 min</div></div>
+              <div class="read-more" style="font-size:.72rem;">Read <i class="fas fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /posts-grid -->
+
+      <!-- NEWSLETTER -->
+      <div class="newsletter reveal">
+        <div>
+          <h3>Get insights in your <span>inbox.</span></h3>
+          <p>Join business owners who receive our weekly brand and growth tips — practical, no fluff, straight to the point.</p>
+        </div>
+        <div>
+          <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="your@email.com">
+            <button class="newsletter-btn" onclick="subscribeNewsletter(this)">Subscribe</button>
+          </div>
+          <p style="font-size:.72rem;color:var(--muted);margin-top:10px;">No spam. Unsubscribe anytime. We respect your inbox.</p>
+        </div>
+      </div>
+
+    </div><!-- /main content -->
+
+    <!-- SIDEBAR -->
+    <div>
+      <div class="sidebar-card reveal">
+        <div class="sidebar-title">Topics</div>
+        <ul class="topic-list">
+          <li onclick="filterCat('brand',null)">Branding <span class="topic-count">12</span></li>
+          <li onclick="filterCat('social',null)">Social Media <span class="topic-count">8</span></li>
+          <li onclick="filterCat('business',null)">Business Growth <span class="topic-count">10</span></li>
+          <li onclick="filterCat('tools',null)">AI & Tools <span class="topic-count">6</span></li>
+          <li onclick="filterCat('content',null)">Content Creation <span class="topic-count">9</span></li>
+          <li onclick="filterCat('mindset',null)">Mindset <span class="topic-count">5</span></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card reveal">
+        <div class="sidebar-title">Most Read</div>
+        <div class="popular-post" onclick="openPost(0)">
+          <span class="popular-num">01</span>
+          <div><h5>Why Your Business Is Being Ignored Online</h5><span>May 29 · 5 min read</span></div>
+        </div>
+        <div class="popular-post" onclick="openPost(4)">
+          <span class="popular-num">02</span>
+          <div><h5>How to Use ChatGPT to Save 5 Hours Every Week</h5><span>May 20 · 6 min read</span></div>
+        </div>
+        <div class="popular-post" onclick="openPost(1)">
+          <span class="popular-num">03</span>
+          <div><h5>5 Signs Your Brand Is Losing You Customers</h5><span>May 27 · 4 min read</span></div>
+        </div>
+      </div>
+
+      <div class="sidebar-card reveal" style="background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(37,99,235,.03));border-color:rgba(37,99,235,.2);">
+        <div class="sidebar-title">Free Diagnosis</div>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-bottom:16px;">Find out exactly what your brand needs to grow — free report in 48 hours.</p>
+        <a href="index.html#diagnosis" style="display:block;text-align:center;background:var(--blue);color:#fff;padding:12px;border-radius:8px;font-family:'Sora',sans-serif;font-size:.78rem;font-weight:700;transition:.3s;">Get Free Diagnosis</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE MODAL -->
+<div id="articleModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(5,8,22,.97);backdrop-filter:blur(12px);overflow-y:auto;">
+  <div style="max-width:780px;margin:0 auto;padding:60px 24px;">
+    <button onclick="closePost()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--muted);padding:10px 18px;border-radius:8px;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;cursor:pointer;margin-bottom:40px;transition:.3s;">← BACK TO BLOG</button>
+    <div id="articleContent"></div>
+  </div>
+</div>
+
+<div class="blog-footer">
+  <div class="container">
+    <p>© 2026 WORLDLITE Media · <a href="index.html">Back to main site</a> · <a href="https://instagram.com/the_worldlite">@the_worldlite</a></p>
+  </div>
+</div>
+
+<script>
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));
+
+// HAMBURGER
+document.getElementById('ham').addEventListener('click',function(){
+  const l=document.querySelector('.nav-links');
+  l.style.display=l.style.display==='flex'?'none':'flex';
+  if(l.style.display==='flex') l.style.cssText='display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(5,8,22,.97);padding:28px 5%;gap:20px;border-bottom:1px solid rgba(255,255,255,.07);z-index:996;';
+});
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*80);obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ARTICLES DATA
+const articles=[
+  {
+    cat:'Brand Strategy',catClass:'gold',date:'May 29, 2026',read:'5 min read',icon:'🎯',
+    title:'Why Your Business Is Being Ignored Online — And What To Fix This Week',
+    content:`<p>Most local businesses are losing customers before those customers even read a single caption. Not because the business is bad — because the <strong>brand is not communicating</strong> what is on the inside.</p>
+    <h3>The 7-Second Rule</h3>
+    <p>When someone discovers your business online, they make a decision about you in less than <strong>7 seconds</strong>. Before they read your caption. Before they check your price. Before they even think about reaching out.</p>
+    <p>That decision is based entirely on how your brand looks and communicates. And for most local businesses in Nigeria, that first impression is costing them customers every single day — without them knowing it.</p>
+    <h3>What to fix first</h3>
+    <p><strong>1. Your bio.</strong> Rewrite it using this formula: What you do + Who you help + What to do next. Example: "We help Lagos fashion brands sell more online. DM us to start."</p>
+    <p><strong>2. Your profile picture.</strong> It should be your logo or a clear, professional photo — not a blurry image or something unrelated to your business.</p>
+    <p><strong>3. Your last 9 posts.</strong> Open your page and look at it like a stranger. Does it communicate clearly? Does it look consistent? If not, start there.</p>
+    <p><strong>4. Your highlights.</strong> Label them clearly — Services, Testimonials, About Us. These are the first things serious buyers check.</p>
+    <h3>The Bottom Line</h3>
+    <p>Your brand is speaking right now — even when you are not online. The question is whether it is saying the right things. Start with these four fixes this week and watch what changes.</p>`
+  },
+  {
+    cat:'Branding',catClass:'',date:'May 27, 2026',read:'4 min read',icon:'🏷️',
+    title:'5 Signs Your Brand Is Quietly Losing You Customers',
+    content:`<p>You are posting. You are working hard. But somehow the customers are not coming the way they should. Here are five signs that your brand — not your product — is the problem.</p>
+    <h3>Sign 1: Nobody can tell what you sell in 3 seconds</h3>
+    <p>Visit your own Instagram or Facebook page right now. If a stranger landed on it, could they understand what you do, who you help, and what to do next — in under 3 seconds? If the answer is no, you are losing people before they even start.</p>
+    <h3>Sign 2: Your visuals look different everywhere</h3>
+    <p>Your logo on your flyer looks different from the one on your WhatsApp status. Your brand colours change from post to post. Individually, these seem small. Together, they tell customers: <em>this business is not organised.</em></p>
+    <h3>Sign 3: Your captions say nothing specific</h3>
+    <p>"We offer quality services at affordable prices." Every business says this. Nobody believes it anymore. If your content does not say something specific — a result, a story, a clear offer — it gets scrolled past.</p>
+    <h3>Sign 4: You are posting but not strategising</h3>
+    <p>Posting is not a strategy. Posting the right content, to the right people, at the right time, with the right message — that is a strategy.</p>
+    <h3>Sign 5: Your brand looks rushed</h3>
+    <p>Customers can feel when a brand was built with intention versus thrown together quickly. A mismatched colour scheme, a low-quality logo — these things signal low quality, whether that is true or not.</p>`
+  },
+  {
+    cat:'Social Media',catClass:'gold',date:'May 25, 2026',read:'3 min read',icon:'📱',
+    title:'How to Write an Instagram Bio That Actually Converts',
+    content:`<p>Your Instagram bio has one job: to make the right person take action. Most business bios fail at this completely. Here is the formula that works.</p>
+    <h3>The Three-Part Formula</h3>
+    <p><strong>Part 1 — What you do</strong> (be specific, not vague)<br>Part 2 — Who you do it for (name your customer)<br>Part 3 — What to do next (one clear action)</p>
+    <h3>Bad Example vs Good Example</h3>
+    <p>❌ "God's own business. Quality is our watchword. DM for enquiries."</p>
+    <p>✅ "We make custom cakes for celebrations in Lagos. Order yours — DM 'CAKE' to get started."</p>
+    <h3>Why the keyword word works</h3>
+    <p>When you ask people to DM a specific word like "CAKE" or "START", two things happen. First, it lowers the barrier to reach out. Second, it gives you a way to track how many people your bio is converting.</p>
+    <h3>Do it today</h3>
+    <p>This takes 5 minutes and it will immediately make your page more effective. Open your Instagram, go to Edit Profile, and rewrite your bio using this formula right now.</p>`
+  },
+  {
+    cat:'Business Growth',catClass:'green',date:'May 22, 2026',read:'5 min read',icon:'📈',
+    title:'The Difference Between Posting and Having a Strategy',
+    content:`<p>There is a version of a business owner who posts every single day — reels, carousels, stories — and still wonders why nothing is converting. If that sounds familiar, the problem is not effort. It is direction.</p>
+    <h3>Posting vs Strategy — the difference</h3>
+    <p>Posting is activity. Strategy is intentional activity with a measurable goal. When you post without a strategy, you are hoping. When you post with one, you are building.</p>
+    <h3>What a content strategy actually includes</h3>
+    <p><strong>1. A clear goal.</strong> Are you building awareness, driving enquiries, or building trust? Each goal needs different content.</p>
+    <p><strong>2. A content mix.</strong> Not every post should be selling. A good mix is: 40% value, 30% behind-the-scenes, 20% social proof, 10% direct offer.</p>
+    <p><strong>3. A posting schedule.</strong> Consistency beats frequency. Three quality posts a week beats seven random ones.</p>
+    <p><strong>4. A measurement system.</strong> What are you tracking? Saves, DMs, website clicks, enquiries? If you are not measuring, you cannot improve.</p>
+    <h3>Start here</h3>
+    <p>Pick one goal for this month. Build your content around that goal. Measure the result. Adjust. That is strategy.</p>`
+  },
+  {
+    cat:'AI & Tools',catClass:'purple',date:'May 20, 2026',read:'6 min read',icon:'🤖',
+    title:'How Nigerian Businesses Can Use ChatGPT to Save 5 Hours Every Week',
+    content:`<p>AI is not coming for your business. It is here. And the business owners who learn to use it now are going to have a serious advantage over those who do not.</p>
+    <h3>7 ways to use ChatGPT in your business today</h3>
+    <p><strong>1. Caption writing.</strong> Give ChatGPT your product details and target customer. Ask it to write 5 Instagram captions. Pick the best one. Done in 2 minutes instead of 20.</p>
+    <p><strong>2. Reply templates.</strong> Ask ChatGPT to write a professional reply template for common customer questions. Copy it into WhatsApp. Use forever.</p>
+    <p><strong>3. Content ideas.</strong> Tell ChatGPT your business type and ask for 30 content ideas. You now have a month of topics.</p>
+    <p><strong>4. Proposals.</strong> Describe your service and ask ChatGPT to write a proposal. Edit it. Send it. Saves hours.</p>
+    <p><strong>5. Email writing.</strong> Give ChatGPT the context and ask for a professional email. Done.</p>
+    <p><strong>6. Product descriptions.</strong> Tell ChatGPT about your product. Ask for a compelling description. Use it everywhere.</p>
+    <p><strong>7. Research.</strong> Need to understand a topic quickly? Ask ChatGPT. It is the fastest research tool you will ever use.</p>
+    <h3>The honest truth</h3>
+    <p>ChatGPT is a tool, not a replacement for your brain or your brand voice. Use it to do the heavy lifting — then add your own touch to make it yours.</p>`
+  },
+  {
+    cat:'Content',catClass:'',date:'May 18, 2026',read:'4 min read',icon:'✍️',
+    title:'What to Post When You Have Nothing to Post',
+    content:`<p>Every content creator and business owner hits this wall. The blank page. The blank screen. The "I have no idea what to post today" paralysis. Here are 10 ideas that work for any Nigerian business.</p>
+    <h3>10 content ideas for any business</h3>
+    <p><strong>1. Answer a question you get asked frequently.</strong> If customers ask it, content about it will perform.</p>
+    <p><strong>2. Show your process.</strong> How do you make your product or deliver your service? People love behind-the-scenes.</p>
+    <p><strong>3. Share a client result.</strong> Even a simple before-and-after or a testimonial screenshot works.</p>
+    <p><strong>4. React to a trend in your industry.</strong> What is happening in your space? What do you think about it?</p>
+    <p><strong>5. Share a mistake you made and what you learned.</strong> Vulnerability builds trust faster than perfection.</p>
+    <p><strong>6. Repost a satisfied customer's story.</strong> User-generated content is free and powerful.</p>
+    <p><strong>7. Share a tool or resource your audience would find useful.</strong> Be generous with value.</p>
+    <p><strong>8. Post a motivational angle specific to your industry.</strong> Not generic — something your specific customer relates to.</p>
+    <p><strong>9. Introduce yourself or your team.</strong> People buy from people. Show the faces behind the brand.</p>
+    <p><strong>10. Share your opinion on something.</strong> A polarising but honest take gets more engagement than safe content.</p>`
+  },
+  {
+    cat:'Mindset',catClass:'red',date:'May 15, 2026',read:'3 min read',icon:'🧠',
+    title:'Why Most Business Owners Plan But Never Execute',
+    content:`<p>Here is a painful truth: planning feels like progress. It is not. Planning is preparation for progress. And there is a very comfortable trap that keeps business owners stuck in preparation mode forever.</p>
+    <h3>The planning trap</h3>
+    <p>You plan. Then you plan again. Then you refine the plan. Then you plan for the refined plan. And before you know it, six months have passed and the business is exactly where it was.</p>
+    <p>This is not laziness. It is fear wearing the costume of productivity.</p>
+    <h3>The one shift that changes everything</h3>
+    <p>Stop asking "is this plan perfect?" and start asking "is this plan good enough to start?" Because a good plan executed today is worth infinitely more than a perfect plan executed never.</p>
+    <h3>The rule</h3>
+    <p>Every plan needs three things to be valid: an action, an owner, and a deadline. If your plan does not have all three, it is not a plan. It is a wish.</p>
+    <h3>Start today</h3>
+    <p>Pick one thing from your plan. Assign yourself as the owner. Give it a deadline of 48 hours. Do it. Then pick the next thing. That is execution. That is how businesses actually grow.</p>`
+  }
+];
+
+// OPEN POST
+function openPost(i){
+  const a=articles[i];
+  document.getElementById('articleContent').innerHTML=`
+    <div style="margin-bottom:24px;">
+      <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(37,99,235,.12);color:var(--blue);border:1px solid rgba(37,99,235,.2);">${a.cat}</span>
+    </div>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:20px;line-height:1.2;">${a.title}</h1>
+    <div style="display:flex;gap:16px;align-items:center;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.07);">
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:28px;height:28px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;">W</div><span style="font-size:.8rem;color:var(--muted);">WORLDLITE Team</span></div>
+      <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);">${a.date}</span>
+      <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);">${a.read}</span>
+    </div>
+    <div style="font-size:1rem;line-height:1.9;color:rgba(255,255,255,.75);" class="article-body">${a.content}</div>
+    <div style="margin-top:48px;padding:32px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);">
+      <p style="font-family:'Sora',sans-serif;font-size:1rem;margin-bottom:12px;">Want us to apply this to your business?</p>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:20px;">Get a free brand diagnosis and find out exactly what your business needs to grow.</p>
+      <a href="index.html#diagnosis" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:12px 22px;border-radius:8px;font-family:'Sora',sans-serif;font-size:.82rem;font-weight:700;">Get Free Diagnosis →</a>
+    </div>`;
+  document.getElementById('articleContent').querySelectorAll('h3').forEach(h=>{h.style.cssText='font-size:1.15rem;margin:28px 0 12px;color:#fff;';});
+  document.getElementById('articleContent').querySelectorAll('p').forEach(p=>{p.style.cssText='margin-bottom:16px;';});
+  document.getElementById('articleModal').style.display='block';
+  document.body.style.overflow='hidden';
+  window.scrollTo(0,0);
+}
+function closePost(){document.getElementById('articleModal').style.display='none';document.body.style.overflow='';}
+
+// FILTER
+function filterCat(cat,btn){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const cards=document.querySelectorAll('.post-card');
+  let count=0;
+  cards.forEach(c=>{
+    const show=cat==='all'||c.dataset.cat===cat;
+    c.style.display=show?'block':'none';
+    if(show)count++;
+  });
+  document.getElementById('post-count').textContent=count+' article'+(count!==1?'s':'');
+}
+
+function filterPosts(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  const cards=document.querySelectorAll('.post-card');
+  cards.forEach(c=>{
+    const t=c.querySelector('h3').textContent.toLowerCase();
+    c.style.display=t.includes(q)?'block':'none';
+  });
+}
+
+function subscribeNewsletter(btn){
+  btn.textContent='Subscribed ✓';btn.style.background='#10b981';
+  setTimeout(()=>{btn.textContent='Subscribe';btn.style.background='';},3000);
+}
+</script>
+</body>
+</html>
