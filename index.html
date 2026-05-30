@@ -850,6 +850,7 @@ footer{
   .contact-form{padding:32px 24px;}
 }
 </style>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </head>
 <body>
 
@@ -1229,6 +1230,33 @@ footer{
         <div id="q-options" style="display:grid;gap:10px;max-width:680px;"></div>
       </div>
 
+      <!-- CAPTURE -->
+      <div id="diag-capture" style="display:none;">
+        <div style="text-align:center;margin-bottom:40px;">
+          <div class="tag" style="justify-content:center;">Almost There</div>
+          <h3 style="font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:12px;">Where should we send your results?</h3>
+          <p style="color:var(--muted);font-size:.88rem;max-width:480px;margin:0 auto;">Enter your details below to unlock your full diagnosis report. We will also send a copy to your WhatsApp.</p>
+        </div>
+        <div style="max-width:480px;margin:0 auto;">
+          <div class="form-group" style="margin-bottom:16px;">
+            <label class="form-label">Your Name</label>
+            <input type="text" id="cap-name" class="form-input" placeholder="Full name">
+          </div>
+          <div class="form-group" style="margin-bottom:16px;">
+            <label class="form-label">Your Business Name</label>
+            <input type="text" id="cap-biz" class="form-input" placeholder="Business or brand name">
+          </div>
+          <div class="form-group" style="margin-bottom:24px;">
+            <label class="form-label">WhatsApp Number</label>
+            <input type="text" id="cap-phone" class="form-input" placeholder="+234 ...">
+          </div>
+          <button class="btn btn-blue" style="width:100%;justify-content:center;" onclick="submitCapture()">
+            <i class="fas fa-chart-line"></i> See My Results Now
+          </button>
+          <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px;">Your details are confidential. We only use them to follow up with tailored recommendations.</p>
+        </div>
+      </div>
+
       <!-- RESULTS -->
       <div id="diag-results" style="display:none;">
         <div style="text-align:center;margin-bottom:48px;">
@@ -1244,7 +1272,7 @@ footer{
           <div id="recs-list"></div>
         </div>
 
-        <div style="background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(37,99,235,.04));border:1px solid rgba(37,99,235,.2);padding:32px;text-align:center;">
+        <div style="background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(37,99,235,.04));border:1px solid rgba(37,99,235,.2);padding:32px;text-align:center;margin-bottom:20px;">
           <h3 style="font-size:1.2rem;margin-bottom:8px;">Ready to fix this — together?</h3>
           <p style="color:var(--muted);font-size:.85rem;margin-bottom:20px;">Your report shows exactly what we can help with. First meeting is free. No obligation.</p>
           <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
@@ -1252,8 +1280,112 @@ footer{
             <button onclick="resetDiag()" class="btn btn-ghost">Retake Diagnosis</button>
           </div>
         </div>
+
+        <!-- OPTIONAL FOLLOW-UP — shown after results -->
+        <div id="diag-followup" style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);padding:32px;">
+          <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:220px;">
+              <div style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Optional</div>
+              <h4 style="font-size:1rem;margin-bottom:6px;">Want us to send you a detailed action plan?</h4>
+              <p style="font-size:.8rem;color:var(--muted);line-height:1.6;">Drop your name and WhatsApp number and we will send you a personalised recommendation based on your results — no pressure, no obligation.</p>
+            </div>
+            <div style="flex:1;min-width:240px;" id="followup-form">
+              <div style="margin-bottom:12px;">
+                <label style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px;">Your Name</label>
+                <input type="text" id="fu-name" class="form-input" placeholder="Full name" style="border-radius:8px;">
+              </div>
+              <div style="margin-bottom:16px;">
+                <label style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px;">WhatsApp Number</label>
+                <input type="text" id="fu-phone" class="form-input" placeholder="+234 ..." style="border-radius:8px;">
+              </div>
+              <button class="btn btn-blue" style="width:100%;justify-content:center;font-size:.8rem;padding:12px;" onclick="sendFollowup(this)">
+                <i class="fas fa-paper-plane"></i> Send Me My Action Plan
+              </button>
+            </div>
+            <div id="followup-success" style="display:none;flex:1;min-width:240px;text-align:center;padding:24px;">
+              <div style="font-size:2rem;margin-bottom:10px;">✓</div>
+              <p style="color:#10b981;font-weight:600;margin-bottom:6px;">Details received!</p>
+              <p style="font-size:.8rem;color:var(--muted);">We will reach out to your WhatsApp within 24 hours with your personalised action plan.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+
+<!-- RECOGNITION AWARDS -->
+<section id="recognition">
+  <div class="container">
+    <div class="recog-hero reveal">
+      <div class="recog-badge"><i class="fas fa-trophy"></i> Annual Programme — Launching 2026</div>
+      <div class="tag" style="justify-content:center;">WL Recognition Awards</div>
+      <h2 class="recog-h2">Every business that shows up<br>consistently deserves to be <em>celebrated.</em></h2>
+      <p class="recog-sub">At the end of every year, WORLDLITE recognises and rewards business owners in our community who hit real milestones — in content, customers, and growth. This is not participation. This is earned.</p>
+      <a href="https://wa.me/2347085335939?text=I%20want%20to%20join%20the%20WL%20Recognition%20Programme" target="_blank" class="btn btn-blue" style="margin:0 auto;display:inline-flex;">
+        <i class="fab fa-whatsapp"></i> DM "AWARD" to Join the Programme
+      </a>
+    </div>
+
+    <div class="award-grid">
+      <div class="award-card gold-card reveal">
+        <div class="award-icon gold"><i class="fas fa-chart-line"></i></div>
+        <div class="award-name gold">Revenue Award</div>
+        <h3 class="award-title">The Growth King</h3>
+        <p class="award-desc">For the business owner who hit a significant revenue milestone over the year — earned through consistency and brand clarity.</p>
+        <div class="award-metric"><div class="metric-title">How We Track It</div><div class="metric-value">Monthly revenue range self-reported via form</div></div>
+      </div>
+      <div class="award-card blue-card reveal">
+        <div class="award-icon blue"><i class="fas fa-users"></i></div>
+        <div class="award-name blue">Customer Award</div>
+        <h3 class="award-title">The People's Brand</h3>
+        <p class="award-desc">For the business that gained the most new customers over the year — proof that when your brand communicates clearly, people show up.</p>
+        <div class="award-metric"><div class="metric-title">How We Track It</div><div class="metric-value">New customers gained each month — self-reported</div></div>
+      </div>
+      <div class="award-card green-card reveal">
+        <div class="award-icon green"><i class="fas fa-calendar-check"></i></div>
+        <div class="award-name green">Consistency Award</div>
+        <h3 class="award-title">The Most Consistent</h3>
+        <p class="award-desc">For the business owner who showed up week after week — posting, engaging, and building their brand without stopping.</p>
+        <div class="award-metric"><div class="metric-title">How We Track It</div><div class="metric-value">Number of content posts submitted monthly</div></div>
+      </div>
+      <div class="award-card purple-card reveal" style="grid-column:1/-1;max-width:480px;margin:0 auto;width:100%;">
+        <div class="award-icon purple"><i class="fas fa-rocket"></i></div>
+        <div class="award-name purple">Special Award</div>
+        <h3 class="award-title">Most Improved Business</h3>
+        <p class="award-desc">For the business that showed the biggest transformation from start to end of year. This one is about the journey — not just the destination.</p>
+        <div class="award-metric"><div class="metric-title">How We Track It</div><div class="metric-value">Combination of all three metrics — judged by WORLDLITE team</div></div>
+      </div>
+    </div>
+
+    <div class="how-wrap reveal">
+      <h3 class="how-title">How the Programme <em>Works</em></h3>
+      <p class="how-sub">Simple, transparent, and built to motivate — not overwhelm.</p>
+      <div class="how-steps">
+        <div class="how-step"><div class="how-step-num">01</div><h4>Join the Community</h4><p>DM us "AWARD" on WhatsApp or Instagram. We add you to the WORLDLITE tracking community.</p></div>
+        <div class="how-step"><div class="how-step-num">02</div><h4>Submit Monthly</h4><p>Every month fill a short form reporting your posts, new customers, and revenue range. Takes 2 minutes.</p></div>
+        <div class="how-step"><div class="how-step-num">03</div><h4>We Track Everything</h4><p>WORLDLITE tracks all submissions in our system. You can check your standing at any time.</p></div>
+        <div class="how-step"><div class="how-step-num">04</div><h4>Win at Year End</h4><p>Winners are announced publicly. You receive a digital certificate, physical award, brand feature, and prizes.</p></div>
+      </div>
+    </div>
+
+    <div class="hall-wrap reveal">
+      <span class="trophy">🏆</span>
+      <h3 class="hall-title">WORLDLITE <em>Hall of Fame</em></h3>
+      <p class="hall-sub">This is where our award winners will be featured publicly — celebrated on our platform, social media, and website for the world to see.</p>
+      <div class="hall-placeholder">
+        <div class="hall-slot"><i class="fas fa-crown"></i></div>
+        <div class="hall-slot"><i class="fas fa-crown"></i></div>
+        <div class="hall-slot"><i class="fas fa-crown"></i></div>
+        <div class="hall-slot"><i class="fas fa-crown"></i></div>
+        <div class="hall-slot"><i class="fas fa-crown"></i></div>
+      </div>
+      <p class="hall-note">First awards ceremony — December 2026. Be part of it.</p>
+      <div style="margin-top:28px;">
+        <a href="https://wa.me/2347085335939?text=I%20want%20to%20join%20the%20WL%20Recognition%20Programme" target="_blank" class="btn btn-blue"><i class="fab fa-whatsapp"></i> Join the Programme Now</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1354,35 +1486,57 @@ footer{
       <div class="contact-form reveal">
         <h3 class="form-h3">Send Us a Message</h3>
         <p class="form-sub">We respond within 24 hours on business days.</p>
-        <div class="form-group">
-          <label class="form-label">Your Name</label>
-          <input type="text" class="form-input" placeholder="Full name">
+
+        <!-- SUCCESS MESSAGE -->
+        <div data-fs-success style="display:none;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);border-radius:10px;padding:24px;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:12px;">✓</div>
+          <h4 style="color:#10b981;margin-bottom:8px;font-family:'Sora',sans-serif;">Message Received!</h4>
+          <p style="font-size:.85rem;color:var(--muted);">We have received your message and will be in touch within 24 hours. Check your WhatsApp.</p>
         </div>
-        <div class="form-group">
-          <label class="form-label">WhatsApp Number</label>
-          <input type="text" class="form-input" placeholder="+234 ...">
-        </div>
-        <div class="form-group">
-          <label class="form-label">What Do You Need?</label>
-          <select class="form-select">
-            <option value="">Select a service...</option>
-            <option>Brand Identity</option>
-            <option>Social Media Management</option>
-            <option>Website Design</option>
-            <option>Video Editing</option>
-            <option>AI Tools & Packages</option>
-            <option>Business Registration</option>
-            <option>Full Brand System</option>
-            <option>Free Business Diagnosis</option>
-            <option>Not sure — I need guidance</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Tell Us About Your Business</label>
-          <textarea class="form-textarea" placeholder="What does your business do? What is your biggest challenge right now?"></textarea>
-        </div>
-        <button class="form-submit" onclick="handleSubmit(this)">Send Message</button>
-        <p class="form-note">All enquiries are confidential and responded to within 24 hours.</p>
+
+        <!-- ERROR MESSAGE -->
+        <div data-fs-error style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:16px;margin-bottom:16px;font-size:.83rem;color:#f87171;"></div>
+
+        <form id="contact-form">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-input" placeholder="Full name" required data-fs-field>
+            <span data-fs-error="name" style="font-size:.75rem;color:#f87171;margin-top:4px;display:block;"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp Number</label>
+            <input type="text" name="whatsapp" class="form-input" placeholder="+234 ..." required data-fs-field>
+            <span data-fs-error="whatsapp" style="font-size:.75rem;color:#f87171;margin-top:4px;display:block;"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-input" placeholder="your@email.com" data-fs-field>
+            <span data-fs-error="email" style="font-size:.75rem;color:#f87171;margin-top:4px;display:block;"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">What Do You Need?</label>
+            <select name="service" class="form-select" required data-fs-field>
+              <option value="">Select a service...</option>
+              <option>Brand Identity</option>
+              <option>Social Media Management</option>
+              <option>Website Design</option>
+              <option>Video Editing</option>
+              <option>AI Tools &amp; Packages</option>
+              <option>Business Registration</option>
+              <option>Full Brand System</option>
+              <option>Free Business Diagnosis</option>
+              <option>Not sure — I need guidance</option>
+            </select>
+            <span data-fs-error="service" style="font-size:.75rem;color:#f87171;margin-top:4px;display:block;"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tell Us About Your Business</label>
+            <textarea name="message" class="form-textarea" placeholder="What does your business do? What is your biggest challenge right now?" required data-fs-field></textarea>
+            <span data-fs-error="message" style="font-size:.75rem;color:#f87171;margin-top:4px;display:block;"></span>
+          </div>
+          <button type="submit" class="form-submit" data-fs-submit-btn>Send Message</button>
+          <p class="form-note">All enquiries are confidential. We respond within 24 hours.</p>
+        </form>
       </div>
     </div>
   </div>
@@ -1573,10 +1727,70 @@ function showResults(){
   });
 }
 
+function showCapture(){
+  document.getElementById('diag-quiz').style.display='none';
+  document.getElementById('diag-capture').style.display='block';
+}
+
+function submitCapture(){
+  const name=document.getElementById('cap-name').value.trim();
+  const biz=document.getElementById('cap-biz').value.trim();
+  const phone=document.getElementById('cap-phone').value.trim();
+  if(!name||!phone){alert('Please enter your name and WhatsApp number to continue.');return;}
+
+  // Build score summary for WhatsApp message
+  let scoreSummary='';
+  Object.keys(scores).forEach(area=>{
+    const p=Math.round(scores[area]/maxScores[area]*100);
+    let status=p>=75?'Good':p>=40?'Needs Improvement':'Urgent Attention';
+    scoreSummary+=`%0A${area}: ${p}%25 (${status})`;
+  });
+
+  // Send to Worldlite WhatsApp automatically
+  const msg=`Hello WORLDLITE,%0A%0AMy brand diagnosis results:%0A%0AName: ${encodeURIComponent(name)}%0ABusiness: ${encodeURIComponent(biz||'Not provided')}%0APhone: ${encodeURIComponent(phone)}%0A%0AScores:${scoreSummary}%0A%0APlease send my full recommendations.`;
+  window.open(`https://wa.me/2347085335939?text=${msg}`,'_blank');
+
+  // Show results
+  document.getElementById('diag-capture').style.display='none';
+  showResults();
+}
+
+function sendFollowup(btn){
+  const name=document.getElementById('fu-name').value.trim();
+  const phone=document.getElementById('fu-phone').value.trim();
+  if(!name||!phone){
+    btn.style.background='#ef4444';
+    btn.textContent='Please fill both fields';
+    setTimeout(()=>{btn.style.background='';btn.innerHTML='<i class="fas fa-paper-plane"></i> Send Me My Action Plan';},2000);
+    return;
+  }
+  // Build score summary
+  let scoreSummary='';
+  Object.keys(scores).forEach(area=>{
+    const p=Math.round(scores[area]/maxScores[area]*100);
+    let status=p>=75?'Good':p>=40?'Needs Improvement':'Urgent Attention';
+    scoreSummary+=`%0A${encodeURIComponent(area)}: ${p}%25 (${status})`;
+  });
+  // Open WhatsApp with their details
+  const msg=`Hello WORLDLITE,%0A%0AI just completed the brand diagnosis.%0A%0AName: ${encodeURIComponent(name)}%0AWhatsApp: ${encodeURIComponent(phone)}%0A%0AMy scores:${scoreSummary}%0A%0APlease send my personalised action plan.`;
+  window.open(`https://wa.me/2347085335939?text=${msg}`,'_blank');
+  // Show success
+  document.getElementById('followup-form').style.display='none';
+  document.getElementById('followup-success').style.display='block';
+}
+
 function resetDiag(){
   document.getElementById('diag-quiz').style.display='none';
   document.getElementById('diag-results').style.display='none';
+  document.getElementById('diag-capture').style.display='none';
   document.getElementById('diag-intro').style.display='block';
+  // Reset follow-up form
+  document.getElementById('followup-form').style.display='block';
+  document.getElementById('followup-success').style.display='none';
+  const fn=document.getElementById('fu-name');
+  const fp=document.getElementById('fu-phone');
+  if(fn)fn.value='';
+  if(fp)fp.value='';
 }
 
 // NAV SCROLL
@@ -1611,11 +1825,7 @@ function closeDiag(){}
 
 
 // FORM SUBMIT
-function handleSubmit(btn){
-  btn.textContent='Message Sent ✓';
-  btn.style.background='#10b981';
-  setTimeout(()=>{btn.textContent='Send Message';btn.style.background='';},3500);
-}
+// Form submission handled by Formspree
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -1626,6 +1836,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       document.querySelector('.nav-links').style.display='none';
     }
   });
+});
+
+// ── FORMSPREE CONTACT FORM ───────────────────────────────────────────────
+window.formspree = window.formspree || function(){(formspree.q=formspree.q||[]).push(arguments);};
+formspree('initForm',{
+  formElement: '#contact-form',
+  formId: 'xykvvoqd'
 });
 </script>
 </body>
