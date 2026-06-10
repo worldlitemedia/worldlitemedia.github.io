@@ -805,7 +805,7 @@ async function runTool(key){
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
+        model: "claude-3-5-sonnet-latest",
         max_tokens: 1000,
         system: "You are an expert business advisor specialising in Nigerian SMEs and entrepreneurs. Give specific, practical, actionable advice. Format your response with clear section headers using **bold** markdown. Use bullet points with dashes. Be direct and specific — avoid generic advice. Write in a professional but warm tone.",
         messages: [{ role: "user", content: prompt }]
