@@ -849,6 +849,115 @@ footer{
   .diag-wrap{padding:40px 24px;}
   .contact-form{padding:32px 24px;}
 }
+
+/* ── LIGHT MODE ─────────────────────────────────────────────────────────── */
+body.light-mode {
+  --blue:    #1d4ed8;
+  --blue-2:  #1e40af;
+  --blue-glow: rgba(29,78,216,0.12);
+  --dark:    #f8fafc;
+  --dark-2:  #f1f5f9;
+  --dark-3:  #e2e8f0;
+  --white:   #0f172a;
+  --cream:   #1e293b;
+  --muted:   #475569;
+  --border:  rgba(0,0,0,0.08);
+  --glass:   rgba(0,0,0,0.02);
+  --gold:    #d97706;
+  --green:   #059669;
+  --purple:  #7c3aed;
+  --red:     #dc2626;
+  background:#f8fafc;
+  color:#0f172a;
+}
+body.light-mode nav.scrolled{
+  background:rgba(248,250,252,0.96);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+body.light-mode .logo-mark{background:var(--blue);}
+body.light-mode .nav-links a{color:#64748b;}
+body.light-mode .nav-links a:hover{color:#0f172a;}
+body.light-mode .svc{background:#fff;border-color:rgba(0,0,0,0.08);}
+body.light-mode .svc:hover{background:#f8fafc;}
+body.light-mode .tool{background:#fff;border-color:rgba(0,0,0,0.08);}
+body.light-mode .pkg{background:#fff;border-color:rgba(0,0,0,0.08);}
+body.light-mode .pkg.featured{background:#eff6ff;border-color:rgba(29,78,216,0.3);}
+body.light-mode .testi{background:#fff;border-color:rgba(0,0,0,0.06);}
+body.light-mode .why-card{background:#fff;border-color:rgba(0,0,0,0.06);}
+body.light-mode .contact-method{background:#fff;border-color:rgba(0,0,0,0.08);}
+body.light-mode .contact-form{background:#fff;border-color:rgba(0,0,0,0.08);}
+body.light-mode .form-input,
+body.light-mode .form-select,
+body.light-mode .form-textarea{
+  background:#f8fafc;
+  border-color:rgba(0,0,0,0.12);
+  color:#0f172a;
+}
+body.light-mode .form-input::placeholder,
+body.light-mode .form-textarea::placeholder{color:#94a3b8;}
+body.light-mode .form-select option{background:#f8fafc;color:#0f172a;}
+body.light-mode .stat-box{background:#fff;border-color:rgba(0,0,0,0.06);}
+body.light-mode .award-card{background:#fff;border-color:rgba(0,0,0,0.06);}
+body.light-mode .how-wrap{background:linear-gradient(135deg,rgba(29,78,216,0.06),rgba(29,78,216,0.02));border-color:rgba(29,78,216,0.15);}
+body.light-mode .hall-wrap{background:#f1f5f9;border-color:rgba(0,0,0,0.06);}
+body.light-mode .diag-wrap{background:linear-gradient(135deg,rgba(29,78,216,0.06),rgba(0,0,0,0.01));border-color:rgba(29,78,216,0.15);}
+body.light-mode .diag-preview{background:#fff;border-color:rgba(0,0,0,0.08);}
+body.light-mode .preview-row{border-color:rgba(0,0,0,0.06);}
+body.light-mode .marquee-section{background:#f1f5f9;}
+body.light-mode footer{background:#f1f5f9;}
+body.light-mode .hero-headline,
+body.light-mode .hero-h1{color:#0f172a;}
+body.light-mode .hero-p{color:#475569;}
+body.light-mode .btn-outline{border-color:rgba(0,0,0,0.15);background:rgba(0,0,0,0.03);color:#1e293b;}
+body.light-mode .dstep{border-color:rgba(0,0,0,0.06);}
+body.light-mode .modal-overlay{background:rgba(248,250,252,0.96);}
+body.light-mode .modal{background:#fff;border-color:rgba(29,78,216,0.2);}
+body.light-mode .modal-steps{background:rgba(0,0,0,0.02);border-color:rgba(0,0,0,0.06);}
+body.light-mode .mstep{border-color:rgba(0,0,0,0.05);}
+body.light-mode #diag-capture .form-input{background:#f8fafc;border-color:rgba(0,0,0,0.12);color:#0f172a;}
+body.light-mode .result-content{background:#f8fafc;border-color:rgba(0,0,0,0.08);color:#1e293b;}
+body.light-mode .pkg-items li{border-color:rgba(0,0,0,0.04);}
+body.light-mode .svc-list li{border-color:rgba(0,0,0,0.04);}
+body.light-mode .hero-proof{background:#fff;border-color:rgba(0,0,0,0.08);}
+body.light-mode .proof-text{color:#475569;}
+body.light-mode .proof-text strong{color:#0f172a;}
+body.light-mode .metric{background:rgba(0,0,0,0.03);border-color:rgba(0,0,0,0.07);}
+body.light-mode .hero-card{background:#fff;border-color:rgba(29,78,216,0.15);}
+body.light-mode .recog-badge{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);}
+body.light-mode .hall-slot{border-color:rgba(245,158,11,0.25);color:rgba(245,158,11,0.3);}
+body.light-mode .how-step-num{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);}
+body.light-mode .footer-links a{color:#64748b;}
+body.light-mode .footer-tagline{color:#64748b;}
+body.light-mode .footer-copy{color:#94a3b8;}
+body.light-mode .footer-col-title{color:var(--blue);}
+body.light-mode .social{border-color:rgba(0,0,0,0.1);}
+body.light-mode .quote{opacity:0.15;}
+body.light-mode .testi-text{color:#1e293b;}
+body.light-mode .pkg-desc{color:#64748b;}
+body.light-mode .award-desc{color:#64748b;}
+body.light-mode .contact-p{color:#475569;}
+body.light-mode .about-p{color:#475569;}
+body.light-mode .wa-float{box-shadow:0 8px 32px rgba(37,211,102,0.3);}
+
+/* TOGGLE BUTTON */
+.theme-toggle{
+  display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  cursor:pointer;transition:.3s;
+  color:#fff;font-size:1rem;
+  flex-shrink:0;
+}
+.theme-toggle:hover{background:rgba(255,255,255,0.15);border-color:var(--blue);}
+body.light-mode .theme-toggle{
+  background:rgba(0,0,0,0.06);
+  border-color:rgba(0,0,0,0.12);
+  color:#0f172a;
+}
+body.light-mode .theme-toggle:hover{background:rgba(0,0,0,0.1);}
+
 </style>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </head>
@@ -895,6 +1004,7 @@ footer{
       <a href="tools.html">Tools</a>
       <a href="#contact">Contact</a>
     </div>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Switch to light mode" aria-label="Toggle theme">☀️</button>
     <a href="#diagnosis" class="nav-cta">Free Diagnosis</a>
     <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
   </div>
@@ -1845,6 +1955,27 @@ formspree('initForm',{
   formElement: '#contact-form',
   formId: 'xykvvoqd'
 });
+
+// ── LIGHT / DARK MODE TOGGLE ─────────────────────────────────────────────
+function toggleTheme(){
+  const body = document.body;
+  const btn = document.getElementById('themeToggle');
+  const isLight = body.classList.toggle('light-mode');
+  btn.textContent = isLight ? '🌙' : '☀️';
+  btn.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
+  localStorage.setItem('worldlite-theme', isLight ? 'light' : 'dark');
+}
+
+// Apply saved theme on load
+(function(){
+  const saved = localStorage.getItem('worldlite-theme');
+  if(saved === 'light'){
+    document.body.classList.add('light-mode');
+    const btn = document.getElementById('themeToggle');
+    if(btn){ btn.textContent = '🌙'; btn.title = 'Switch to dark mode'; }
+  }
+})();
+
 </script>
 </body>
 </html>
